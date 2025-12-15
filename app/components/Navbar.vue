@@ -24,7 +24,7 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/research" class="hover:text-[#145DA0] transition">
+          <NuxtLink to="/membership" class="hover:text-[#145DA0] transition">
             Membership
           </NuxtLink>
         </li>
