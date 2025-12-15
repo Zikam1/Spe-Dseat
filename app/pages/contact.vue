@@ -77,12 +77,6 @@
             <p class="text-sm text-gray-700 mb-4">
               Technical and innovation-based competitions organised by SPE DSEAT.
             </p>
-            <NuxtLink
-              to="/competitions"
-              class="inline-block text-[#145DA0] font-medium hover:underline"
-            >
-              View & Register →
-            </NuxtLink>
           </div>
 
           <!-- Events -->
@@ -91,12 +85,6 @@
             <p class="text-sm text-gray-700 mb-4">
               Academic conferences, guest lectures, and professional seminars.
             </p>
-            <NuxtLink
-              to="/events"
-              class="inline-block text-[#145DA0] font-medium hover:underline"
-            >
-              View & Register →
-            </NuxtLink>
           </div>
 
           <!-- Workshops -->
@@ -105,12 +93,6 @@
             <p class="text-sm text-gray-700 mb-4">
               Skills development and technical training programmes.
             </p>
-            <NuxtLink
-              to="/workshops"
-              class="inline-block text-[#145DA0] font-medium hover:underline"
-            >
-              View & Register →
-            </NuxtLink>
           </div>
         </div>
       </section>

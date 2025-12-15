@@ -4,45 +4,176 @@
     <!-- Hero Section -->
     <section class="bg-[#145DA0] text-white py-20 px-6 md:px-20 text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Join SPE DSEAT</h1>
-      <p class="text-lg md:text-xl max-w-2xl mx-auto">
-        Register now to become part of a growing community of engineering and technology students. Learn, collaborate, and innovate with us.
+      <p class="text-lg md:text-xl max-w-3xl mx-auto">
+        Register now to become part of a growing community of engineering and technology students. Fill out the form below.
       </p>
     </section>
 
     <!-- Registration Form Section -->
     <section class="flex-1 py-16 px-6 md:px-20 flex justify-center">
-      <div class="bg-white rounded-2xl shadow-xl w-full max-w-3xl p-10 md:p-16">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-5xl p-10 md:p-16">
         <h2 class="text-3xl font-bold text-[#145DA0] mb-6 text-center">Register Now</h2>
-        <p class="text-gray-600 mb-8 text-center">
-          Fill out the form below to join SPE DSEAT and gain access to workshops, mentorship, and community events.
-        </p>
-
         <form @submit.prevent="submitForm" class="space-y-6">
 
+          <!-- Name Fields -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">Surname *</label>
+              <input v-model="surname" type="text" placeholder="Your Surname"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Name *</label>
+              <input v-model="name" type="text" placeholder="Your Name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+          </div>
+
+          <!-- Email & Phone -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">Email Address *</label>
+              <input v-model="email" type="email" placeholder="you@example.com"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Phone Number *</label>
+              <input v-model="phone" type="text" placeholder="+233..." 
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+          </div>
+
+          <!-- Country & SPE Section -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">Country of Residence *</label>
+              <input v-model="country" type="text" placeholder="Your Country"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">SPE Section *</label>
+              <input v-model="speSection" type="text" placeholder="SPE Nairobi Section"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+          </div>
+
+          <!-- Category -->
           <div>
-            <label class="block text-gray-700 mb-2" for="name">Full Name</label>
-            <input v-model="name" type="text" id="name" placeholder="Your Name"
+            <label class="block text-gray-700 mb-2">Category *</label>
+            <select v-model="category"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]">
+              <option value="">Select category</option>
+              <option>Student Professional</option>
+              <option>Young Professional</option>
+              <option>Industry Professional (36 years and above)</option>
+            </select>
+          </div>
+
+          <!-- Additional Fields -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">SPE Number</label>
+              <input v-model="speNumber" type="text" placeholder="Optional"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Affiliation</label>
+              <input v-model="affiliation" type="text" placeholder="Industry / University / Organization"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">Current Role</label>
+              <input v-model="role" type="text" placeholder="Your current role"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Gender *</label>
+              <select v-model="gender"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]">
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">Age Group *</label>
+              <select v-model="ageGroup"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]">
+                <option value="">Select age group</option>
+                <option>16-20</option>
+                <option>21-25</option>
+                <option>26-30</option>
+                <option>31-35</option>
+                <option>36-40</option>
+                <option>41 and above</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Current Discipline *</label>
+              <input v-model="discipline" type="text" placeholder="Petroleum Engineer, Data Scientist..."
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
+            </div>
+          </div>
+
+          <!-- Membership -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">Are you a member of SPE DSEAT? *</label>
+              <select v-model="isMember"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]">
+                <option value="">Select</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">If No, would you like to join SPE DSEAT?</label>
+              <select v-model="joinDseat"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]">
+                <option value="">Select</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- How did you hear -->
+          <div>
+            <label class="block text-gray-700 mb-2">How did you hear about this competition? *</label>
+            <select v-model="source"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]">
+              <option value="">Select one</option>
+              <option>WhatsApp Group</option>
+              <option>Email Announcement</option>
+              <option>Social Media</option>
+              <option>Church Announcement</option>
+              <option>Friend or Colleague</option>
+              <option>Alumni Network</option>
+              <option>LinkedIn</option>
+              <option>University Department/Faculty</option>
+              <option>Mentor or Lecturer</option>
+              <option>Telegram Channel</option>
+              <option>Online Search</option>
+              <option>Previous Participant</option>
+              <option>Poster/Flyer</option>
+              <option>SPE Section</option>
+            </select>
+          </div>
+
+          <!-- Alternate Email -->
+          <div>
+            <label class="block text-gray-700 mb-2">Provide alternate email address</label>
+            <input v-model="alternateEmail" type="email" placeholder="Optional"
               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
           </div>
 
-          <div>
-            <label class="block text-gray-700 mb-2" for="email">Email</label>
-            <input v-model="email" type="email" id="email" placeholder="you@example.com"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
-          </div>
-
-          <div>
-            <label class="block text-gray-700 mb-2" for="department">Department</label>
-            <input v-model="department" type="text" id="department" placeholder="Your Department"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
-          </div>
-
-          <div>
-            <label class="block text-gray-700 mb-2" for="year">Year of Study</label>
-            <input v-model="year" type="text" id="year" placeholder="Your Year"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#145DA0]" />
-          </div>
-
+          <!-- Submit Button -->
           <div class="text-center">
             <button
               type="submit"
@@ -61,17 +192,6 @@
       </div>
     </section>
 
-    <!-- Info Section -->
-    <section class="bg-[#145DA0] text-white py-12 px-6 md:px-20 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-3">Why Join SPE DSEAT?</h2>
-      <p class="mb-4 max-w-2xl mx-auto">
-        Gain access to workshops, mentorship programs, competitions, and a network of talented engineering students.
-      </p>
-      <button class="bg-white text-[#145DA0] font-bold px-6 py-2 rounded hover:bg-gray-100 transition">
-        Learn More
-      </button>
-    </section>
-
   </div>
 </template>
 
@@ -79,24 +199,36 @@
 import { ref } from 'vue'
 import { useFirebase } from '~/composables/useFirebase'
 
+const surname = ref('')
 const name = ref('')
 const email = ref('')
-const department = ref('')
-const year = ref('')
+const phone = ref('')
+const country = ref('')
+const speSection = ref('')
+const category = ref('')
+const speNumber = ref('')
+const affiliation = ref('')
+const role = ref('')
+const gender = ref('')
+const ageGroup = ref('')
+const discipline = ref('')
+const isMember = ref('')
+const joinDseat = ref('')
+const source = ref('')
+const alternateEmail = ref('')
+
 const success = ref('')
 const error = ref('')
 const loading = ref(false)
-
-
-// Do not access client-only plugin at module-level (prevents undefined during SSR)
 
 const submitForm = async () => {
   success.value = ''
   error.value = ''
   loading.value = true
 
-  if (!name.value || !email.value || !department.value || !year.value) {
-    error.value = 'Please fill all fields'
+  // basic validation
+  if (!surname.value || !name.value || !email.value || !phone.value || !country.value || !speSection.value || !category.value || !gender.value || !ageGroup.value || !discipline.value || !isMember.value || !source.value) {
+    error.value = 'Please fill all required fields'
     loading.value = false
     return
   }
@@ -107,35 +239,36 @@ const submitForm = async () => {
 
     const { collection, addDoc } = await import('firebase/firestore')
 
-    const addDocPromise = addDoc(collection(db, 'registrations'), {
+    await addDoc(collection(db, 'registrations'), {
+      surname: surname.value,
       name: name.value,
       email: email.value,
-      department: department.value,
-      year: year.value,
+      phone: phone.value,
+      country: country.value,
+      speSection: speSection.value,
+      category: category.value,
+      speNumber: speNumber.value,
+      affiliation: affiliation.value,
+      role: role.value,
+      gender: gender.value,
+      ageGroup: ageGroup.value,
+      discipline: discipline.value,
+      isMember: isMember.value,
+      joinDseat: joinDseat.value,
+      source: source.value,
+      alternateEmail: alternateEmail.value,
       timestamp: new Date()
     })
 
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Write operation timed out after 10 seconds. Check Firestore permissions.')), 10000)
-    )
+    success.value = 'Registration successful!'
 
-    const docRef = await Promise.race([addDocPromise, timeoutPromise])
-
-    success.value = 'Registration successful! Redirecting...'
-
-    // Reset form
-    name.value = ''
-    email.value = ''
-    department.value = ''
-    year.value = ''
-
-    // Redirect to Google Form after a short delay (optional: 1-2 seconds for UX)
-    setTimeout(() => {
-      window.location.href = 'https://docs.google.com/forms/d/1qFt3EOEGwwsIDP8R5FIlrmPKCsV9p21p8-Csc2A_2zo/edit?usp=forms_home&ouid=102439292687435756167&ths=true'
-    }, 1000)
+    // reset all fields
+    surname.value = name.value = email.value = phone.value = country.value = speSection.value = ''
+    category.value = speNumber.value = affiliation.value = role.value = gender.value = ageGroup.value = discipline.value = ''
+    isMember.value = joinDseat.value = source.value = alternateEmail.value = ''
 
   } catch (err) {
-    console.error('ERROR OCCURRED:', err)
+    console.error(err)
     error.value = `Error submitting form: ${err.message}`
   } finally {
     loading.value = false
@@ -144,5 +277,5 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
-/* Tailwind handles most styling */
+/* Tailwind handles styling */
 </style>

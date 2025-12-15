@@ -68,7 +68,7 @@
 
         <li class="pt-2">
           <NuxtLink
-            to="/join"
+            to="/register"
             class="flex w-full justify-center rounded-xl px-5 py-2 text-white transition"
             style="background:#145DA0"
             @click="close"

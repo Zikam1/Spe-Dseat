@@ -89,7 +89,7 @@
         Be part of our growing community and advance your engineering skills and professional network.
       </p>
       <button class="bg-white text-blue-900 font-bold px-6 py-2 rounded hover:bg-gray-100 transition">
-        Get Involvedddd
+        Get Involved
       </button>
     </section>
 
