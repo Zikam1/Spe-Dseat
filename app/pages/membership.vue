@@ -48,11 +48,12 @@
         </p>
 
         <!-- Registration Form -->
-        <form class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+        <form @submit.prevent="submitForm" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
           <!-- Full Name -->
           <div>
             <label class="block font-medium mb-2">Full Name</label>
             <input
+              v-model="form.name"
               type="text"
               placeholder="Enter your full name"
               class="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#145DA0]"
@@ -63,6 +64,7 @@
           <div>
             <label class="block font-medium mb-2">Email Address</label>
             <input
+              v-model="form.email"
               type="email"
               placeholder="example@email.com"
               class="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#145DA0]"
@@ -73,6 +75,7 @@
           <div>
             <label class="block font-medium mb-2">Phone Number</label>
             <input
+              v-model="form.phone"
               type="tel"
               placeholder="+234..."
               class="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#145DA0]"
@@ -83,6 +86,7 @@
           <div>
             <label class="block font-medium mb-2">Department / Institution</label>
             <input
+              v-model="form.department"
               type="text"
               placeholder="Your department or institution"
               class="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#145DA0]"
@@ -93,8 +97,10 @@
           <div>
             <label class="block font-medium mb-2">Membership Category</label>
             <select
+              v-model="form.membershipType"
               class="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#145DA0]"
             >
+              <option disabled value="">Select category</option>
               <option>Student Member</option>
               <option>Graduate Member</option>
               <option>Professional Member</option>
@@ -105,24 +111,10 @@
           <div class="md:col-span-2">
             <label class="block font-medium mb-2">Areas of Participation</label>
             <div class="space-y-2">
-              <div class="flex items-center">
-                <input type="checkbox" id="competitions" value="Competitions" v-model="selectedAreas" class="h-4 w-4 text-[#145DA0] border-gray-300 rounded">
-                <label for="competitions" class="ml-2 text-gray-700">Competitions</label>
-              </div>
-
-              <div class="flex items-center">
-                <input type="checkbox" id="conferences" value="Conferences & Seminars" v-model="selectedAreas" class="h-4 w-4 text-[#145DA0] border-gray-300 rounded">
-                <label for="conferences" class="ml-2 text-gray-700">Conferences & Seminars</label>
-              </div>
-
-              <div class="flex items-center">
-                <input type="checkbox" id="workshops" value="Workshops & Training" v-model="selectedAreas" class="h-4 w-4 text-[#145DA0] border-gray-300 rounded">
-                <label for="workshops" class="ml-2 text-gray-700">Workshops & Training</label>
-              </div>
-
-              <div class="flex items-center">
-                <input type="checkbox" id="leadership" value="Leadership & Volunteering" v-model="selectedAreas" class="h-4 w-4 text-[#145DA0] border-gray-300 rounded">
-                <label for="leadership" class="ml-2 text-gray-700">Leadership & Volunteering</label>
+              <div class="flex items-center" v-for="area in participationAreas" :key="area">
+                <input type="checkbox" :id="area" :value="area" v-model="form.selectedAreas"
+                       class="h-4 w-4 text-[#145DA0] border-gray-300 rounded">
+                <label :for="area" class="ml-2 text-gray-700">{{ area }}</label>
               </div>
             </div>
             <p class="text-sm text-gray-600 mt-2">
@@ -134,10 +126,16 @@
           <div class="md:col-span-2">
             <button
               type="submit"
-              class="bg-[#145DA0] text-white px-8 py-3 font-semibold hover:bg-blue-700 transition"
+              :disabled="loading"
+              class="bg-[#145DA0] text-white px-8 py-3 font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Register as a Member
+              <span v-if="!loading">Register as a Member</span>
+              <span v-else>Submitting...</span>
             </button>
+
+            <!-- Success & Error Messages -->
+            <p v-if="success" class="text-green-600 mt-2">{{ success }}</p>
+            <p v-if="error" class="text-red-600 mt-2">{{ error }}</p>
           </div>
         </form>
       </section>
@@ -148,9 +146,77 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useFirebase } from '~/composables/useFirebase'
+import { collection, addDoc } from 'firebase/firestore'
 
-// Reactive array for selected participation areas
-const selectedAreas = ref([])
+const form = ref({
+  name: '',
+  email: '',
+  phone: '',
+  department: '',
+  membershipType: '',
+  selectedAreas: []
+})
 
-// You can later handle form submission here and include selectedAreas
+const participationAreas = [
+  "Competitions",
+  "Conferences & Seminars",
+  "Workshops & Training",
+  "Leadership & Volunteering"
+]
+
+const loading = ref(false)
+const success = ref('')
+const error = ref('')
+
+const submitForm = async () => {
+  success.value = ''
+  error.value = ''
+
+  // Basic validation
+  if (!form.value.name || !form.value.email || !form.value.department || !form.value.membershipType) {
+    error.value = 'Please fill all required fields'
+    return
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(form.value.email)) {
+    error.value = 'Please enter a valid email'
+    return
+  }
+
+  loading.value = true
+
+  try {
+    const { db } = useFirebase()
+    if (!db) throw new Error('Firestore is not initialized')
+
+    // Add timeout for write operation
+    const addDocPromise = addDoc(collection(db, 'memberships'), {
+      ...form.value,
+      timestamp: new Date()
+    })
+
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Write operation timed out. Check Firestore rules.')), 10000)
+    )
+
+    await Promise.race([addDocPromise, timeoutPromise])
+
+    success.value = 'Registration successful!'
+    form.value = {
+      name: '',
+      email: '',
+      phone: '',
+      department: '',
+      membershipType: '',
+      selectedAreas: []
+    }
+  } catch (err) {
+    console.error('Error submitting form:', err)
+    error.value = `Error submitting form: ${err.message}`
+  } finally {
+    loading.value = false
+  }
+}
 </script>

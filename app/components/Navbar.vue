@@ -63,7 +63,7 @@
       <ul class="flex flex-col px-4 py-4 gap-4 text-sm font-medium text-gray-700">
         <li><NuxtLink to="/" @click="close">Home</NuxtLink></li>
         <li><NuxtLink to="/about" @click="close">About</NuxtLink></li>
-        <li><NuxtLink to="/research" @click="close">Membership</NuxtLink></li>
+        <li><NuxtLink to="/membership" @click="close">Membership</NuxtLink></li>
         <li><NuxtLink to="/contact" @click="close">Contact</NuxtLink></li>
 
         <li class="pt-2">
