@@ -7,7 +7,7 @@
       <input
         v-model="search"
         type="text"
-        placeholder="Search by name, surname, email, department, SPE section..."
+        placeholder="Search by name, surname, email, phone, SPE section..."
         class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#145DA0]"
       />
     </div>
@@ -43,22 +43,22 @@
             :key="reg.id"
             class="border-b hover:bg-gray-50 transition"
           >
-            <td class="px-3 py-2">{{ reg.surname }}</td>
-            <td class="px-3 py-2">{{ reg.name }}</td>
-            <td class="px-3 py-2">{{ reg.email }}</td>
-            <td class="px-3 py-2">{{ reg.phone }}</td>
-            <td class="px-3 py-2">{{ reg.country }}</td>
-            <td class="px-3 py-2">{{ reg.speSection }}</td>
-            <td class="px-3 py-2">{{ reg.category }}</td>
+            <td class="px-3 py-2">{{ reg.surname || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.name || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.email || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.phone || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.country || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.speSection || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.category || '-' }}</td>
             <td class="px-3 py-2">{{ reg.speNumber || '-' }}</td>
             <td class="px-3 py-2">{{ reg.affiliation || '-' }}</td>
             <td class="px-3 py-2">{{ reg.role || '-' }}</td>
-            <td class="px-3 py-2">{{ reg.gender }}</td>
-            <td class="px-3 py-2">{{ reg.ageGroup }}</td>
-            <td class="px-3 py-2">{{ reg.discipline }}</td>
-            <td class="px-3 py-2">{{ reg.isMember }}</td>
+            <td class="px-3 py-2">{{ reg.gender || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.ageGroup || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.discipline || '-' }}</td>
+            <td class="px-3 py-2">{{ reg.isMember || '-' }}</td>
             <td class="px-3 py-2">{{ reg.joinDseat || '-' }}</td>
-            <td class="px-3 py-2">{{ reg.source }}</td>
+            <td class="px-3 py-2">{{ reg.source || '-' }}</td>
             <td class="px-3 py-2">{{ reg.alternateEmail || '-' }}</td>
             <td class="px-3 py-2">{{ formatDate(reg.timestamp) }}</td>
           </tr>
@@ -99,17 +99,16 @@ const filteredRegistrations = computed(() => {
   if (!search.value) return registrations.value
   const term = search.value.toLowerCase()
   return registrations.value.filter(r =>
-    (r.name && r.name.toLowerCase().includes(term)) ||
-    (r.surname && r.surname.toLowerCase().includes(term)) ||
-    (r.email && r.email.toLowerCase().includes(term)) ||
-    (r.phone && r.phone.toLowerCase().includes(term)) ||
-    (r.department && r.department.toLowerCase().includes(term)) ||
-    (r.speSection && r.speSection.toLowerCase().includes(term))
+    Object.values(r).some(
+      v => v && v.toString().toLowerCase().includes(term)
+    )
   )
 })
 
 const formatDate = (timestamp) => {
   if (!timestamp) return ''
-  return new Date(timestamp.seconds ? timestamp.seconds * 1000 : timestamp).toLocaleString()
+  // Support Firestore timestamp or JS Date
+  const date = timestamp.seconds ? new Date(timestamp.seconds * 1000) : new Date(timestamp)
+  return date.toLocaleString()
 }
 </script>

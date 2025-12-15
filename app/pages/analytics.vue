@@ -1,188 +1,139 @@
 <template>
-  <div class="min-h-screen p-6 md:p-12 bg-gray-100">
-    <h1 class="text-4xl font-bold text-[#145DA0] mb-8 text-center">SPE DSEAT Analytics</h1>
+  <div class="min-h-screen bg-gray-100 p-6 md:p-12">
+    <h1 class="text-4xl font-bold text-[#145DA0] mb-10 text-center">
+      SPE DSEAT Analytics Dashboard
+    </h1>
 
     <!-- Summary Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-      <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center">
-        <div class="text-4xl text-[#145DA0] mb-2">👥</div>
-        <p class="text-gray-500 mb-1">Total Registrations</p>
-        <h2 class="text-2xl font-bold">{{ totalRegistrations }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-white rounded-2xl shadow p-6 text-center">
+        <p class="text-gray-500 text-sm">Total Registrations</p>
+        <p class="text-4xl font-bold text-[#145DA0] mt-2">
+          {{ registrations.length }}
+        </p>
       </div>
 
-      <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center">
-        <div class="text-4xl text-[#145DA0] mb-2">🏫</div>
-        <p class="text-gray-500 mb-1">Departments</p>
-        <h2 class="text-2xl font-bold">{{ departmentCount }}</h2>
+      <div class="bg-white rounded-2xl shadow p-6 text-center">
+        <p class="text-gray-500 text-sm">Countries Represented</p>
+        <p class="text-4xl font-bold text-[#145DA0] mt-2">
+          {{ Object.keys(countryStats).length }}
+        </p>
       </div>
 
-      <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center">
-        <div class="text-4xl text-[#145DA0] mb-2">📚</div>
-        <p class="text-gray-500 mb-1">Years</p>
-        <h2 class="text-2xl font-bold">{{ yearCount }}</h2>
-      </div>
-
-      <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center">
-        <div class="text-4xl text-[#145DA0] mb-2">🎯</div>
-        <p class="text-gray-500 mb-1">Categories</p>
-        <h2 class="text-2xl font-bold">{{ categoryCount }}</h2>
+      <div class="bg-white rounded-2xl shadow p-6 text-center">
+        <p class="text-gray-500 text-sm">SPE Sections</p>
+        <p class="text-4xl font-bold text-[#145DA0] mt-2">
+          {{ Object.keys(sectionStats).length }}
+        </p>
       </div>
     </div>
 
-    <!-- Bar Charts -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+    <!-- Analytics Tables -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- By Country -->
       <div class="bg-white rounded-2xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Registrations by Department</h2>
-        <client-only>
-          <apexchart
-            v-if="chartReady"
-            type="bar"
-            height="350"
-            :options="deptChartOptions"
-            :series="deptChartSeries"
-          />
-        </client-only>
+        <h2 class="text-xl font-semibold text-[#145DA0] mb-4">
+          Registrations by Country
+        </h2>
+        <table class="w-full text-sm">
+          <tbody>
+            <tr
+              v-for="(count, country) in countryStats"
+              :key="country"
+              class="border-b last:border-none"
+            >
+              <td class="py-2">{{ country }}</td>
+              <td class="py-2 text-right font-semibold">{{ count }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
+      <!-- By Gender -->
       <div class="bg-white rounded-2xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Registrations by Category</h2>
-        <client-only>
-          <apexchart
-            v-if="chartReady"
-            type="bar"
-            height="350"
-            :options="categoryChartOptions"
-            :series="categoryChartSeries"
-          />
-        </client-only>
+        <h2 class="text-xl font-semibold text-[#145DA0] mb-4">
+          Registrations by Gender
+        </h2>
+        <table class="w-full text-sm">
+          <tbody>
+            <tr
+              v-for="(count, gender) in genderStats"
+              :key="gender"
+              class="border-b last:border-none"
+            >
+              <td class="py-2">{{ gender }}</td>
+              <td class="py-2 text-right font-semibold">{{ count }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
+      <!-- By SPE Section -->
       <div class="bg-white rounded-2xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Registrations by Gender</h2>
-        <client-only>
-          <apexchart
-            v-if="chartReady"
-            type="bar"
-            height="350"
-            :options="genderChartOptions"
-            :series="genderChartSeries"
-          />
-        </client-only>
+        <h2 class="text-xl font-semibold text-[#145DA0] mb-4">
+          Registrations by SPE Section
+        </h2>
+        <table class="w-full text-sm">
+          <tbody>
+            <tr
+              v-for="(count, section) in sectionStats"
+              :key="section"
+              class="border-b last:border-none"
+            >
+              <td class="py-2">{{ section }}</td>
+              <td class="py-2 text-right font-semibold">{{ count }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <div class="bg-white rounded-2xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Registrations by Age Group</h2>
-        <client-only>
-          <apexchart
-            v-if="chartReady"
-            type="bar"
-            height="350"
-            :options="ageChartOptions"
-            :series="ageChartSeries"
-          />
-        </client-only>
-      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useFirebase } from '~/composables/useFirebase'
 import { collection, getDocs } from 'firebase/firestore'
 
 const registrations = ref([])
-
-const totalRegistrations = ref(0)
-const departmentCount = ref(0)
-const yearCount = ref(0)
-const categoryCount = ref(0)
-
-const deptChartSeries = ref([])
-const deptChartOptions = ref({})
-
-const categoryChartSeries = ref([])
-const categoryChartOptions = ref({})
-
-const genderChartSeries = ref([])
-const genderChartOptions = ref({})
-
-const ageChartSeries = ref([])
-const ageChartOptions = ref({})
-
-const chartReady = ref(false)
-
 const { db } = useFirebase()
 
-onMounted(async () => {
-  try {
-    if (!db) throw new Error('Firestore not initialized')
+const fetchRegistrations = async () => {
+  if (!db) return
+  const snapshot = await getDocs(collection(db, 'registrations'))
+  registrations.value = snapshot.docs.map(doc => doc.data())
+}
 
-    // Fetch all registrations
-    const snapshot = await getDocs(collection(db, 'registrations'))
-    registrations.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+onMounted(fetchRegistrations)
 
-    // Summary stats
-    totalRegistrations.value = registrations.value.length
+/* ---- Analytics Computations ---- */
 
-    const deptMap = {}
-    const yearMap = {}
-    const categoryMap = {}
-    const genderMap = {}
-    const ageMap = {}
+const countryStats = computed(() => {
+  const stats = {}
+  registrations.value.forEach(r => {
+    const key = r.country || 'Unknown'
+    stats[key] = (stats[key] || 0) + 1
+  })
+  return stats
+})
 
-    registrations.value.forEach(r => {
-      deptMap[r.department] = (deptMap[r.department] || 0) + 1
-      yearMap[r.year] = (yearMap[r.year] || 0) + 1
-      categoryMap[r.category] = (categoryMap[r.category] || 0) + 1
-      genderMap[r.gender] = (genderMap[r.gender] || 0) + 1
-      ageMap[r.ageGroup] = (ageMap[r.ageGroup] || 0) + 1
-    })
+const genderStats = computed(() => {
+  const stats = {}
+  registrations.value.forEach(r => {
+    const key = r.gender || 'Not Specified'
+    stats[key] = (stats[key] || 0) + 1
+  })
+  return stats
+})
 
-    departmentCount.value = Object.keys(deptMap).length
-    yearCount.value = Object.keys(yearMap).length
-    categoryCount.value = Object.keys(categoryMap).length
-
-    // Load ApexCharts dynamically
-    const ApexCharts = (await import('vue3-apexcharts')).default
-
-    // Prepare chart data
-    deptChartOptions.value = {
-      chart: { id: 'dept-bar' },
-      xaxis: { categories: Object.keys(deptMap) },
-      dataLabels: { enabled: true }
-    }
-    deptChartSeries.value = [{ name: 'Registrations', data: Object.values(deptMap) }]
-
-    categoryChartOptions.value = {
-      chart: { id: 'category-bar' },
-      xaxis: { categories: Object.keys(categoryMap) },
-      dataLabels: { enabled: true }
-    }
-    categoryChartSeries.value = [{ name: 'Registrations', data: Object.values(categoryMap) }]
-
-    genderChartOptions.value = {
-      chart: { id: 'gender-bar' },
-      xaxis: { categories: Object.keys(genderMap) },
-      dataLabels: { enabled: true }
-    }
-    genderChartSeries.value = [{ name: 'Registrations', data: Object.values(genderMap) }]
-
-    ageChartOptions.value = {
-      chart: { id: 'age-bar' },
-      xaxis: { categories: Object.keys(ageMap) },
-      dataLabels: { enabled: true }
-    }
-    ageChartSeries.value = [{ name: 'Registrations', data: Object.values(ageMap) }]
-
-    chartReady.value = true
-
-  } catch (err) {
-    console.error('Error loading analytics:', err)
-  }
+const sectionStats = computed(() => {
+  const stats = {}
+  registrations.value.forEach(r => {
+    const key = r.speSection || 'Unknown'
+    stats[key] = (stats[key] || 0) + 1
+  })
+  return stats
 })
 </script>
-
-<style scoped>
-/* Tailwind handles styling */
-</style>
