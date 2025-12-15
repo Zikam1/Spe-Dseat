@@ -77,6 +77,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useFirebase } from '~/composables/useFirebase'
 
 const name = ref('')
 const email = ref('')
@@ -101,31 +102,53 @@ const submitForm = async () => {
   }
 
   try {
-    const nuxtApp = useNuxtApp()
+    console.log('1. Starting submission')
+    const { db } = useFirebase()
+    console.log('2. Got firebase db:', db)
     
-    const db = (nuxtApp && nuxtApp.$firebaseDb) || (typeof window !== 'undefined' && window.__FIREBASE_DB) || null
-    console.log('Firestore DB instance (nuxtApp, window):', nuxtApp?.$firebaseDb, window?.__FIREBASE_DB)
-    if (!db) throw new Error('Firestore is not initialized')
+    if (!db) {
+      throw new Error('Firestore is not initialized')
+    }
 
+    console.log('3. DB is valid, importing firebase/firestore')
     const { collection, addDoc } = await import('firebase/firestore')
+    console.log('4. Import successful')
 
-    await addDoc(collection(db, 'registrations'), {
+    console.log('5. About to call addDoc with data:', {
+      name: name.value,
+      email: email.value,
+      department: department.value,
+      year: year.value
+    })
+    
+    // Add a timeout to catch hanging requests
+    const addDocPromise = addDoc(collection(db, 'registrations'), {
       name: name.value,
       email: email.value,
       department: department.value,
       year: year.value,
       timestamp: new Date()
     })
+    
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Write operation timed out after 10 seconds. Check Firestore permissions.')), 10000)
+    )
+    
+    const docRef = await Promise.race([addDocPromise, timeoutPromise])
 
+    console.log('6. Document added successfully:', docRef.id)
     success.value = 'Registration successful!'
     name.value = ''
     email.value = ''
     department.value = ''
     year.value = ''
   } catch (err) {
-    console.error('Firebase error:', err)
+    console.error('ERROR OCCURRED:', err)
+    console.error('Error message:', err.message)
+    console.error('Error code:', err.code)
     error.value = `Error submitting form: ${err.message}`
   } finally {
+    console.log('7. Finally block executing')
     loading.value = false
   }
 }
