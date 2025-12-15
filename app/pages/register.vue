@@ -102,26 +102,11 @@ const submitForm = async () => {
   }
 
   try {
-    console.log('1. Starting submission')
     const { db } = useFirebase()
-    console.log('2. Got firebase db:', db)
-    
-    if (!db) {
-      throw new Error('Firestore is not initialized')
-    }
+    if (!db) throw new Error('Firestore is not initialized')
 
-    console.log('3. DB is valid, importing firebase/firestore')
     const { collection, addDoc } = await import('firebase/firestore')
-    console.log('4. Import successful')
 
-    console.log('5. About to call addDoc with data:', {
-      name: name.value,
-      email: email.value,
-      department: department.value,
-      year: year.value
-    })
-    
-    // Add a timeout to catch hanging requests
     const addDocPromise = addDoc(collection(db, 'registrations'), {
       name: name.value,
       email: email.value,
@@ -129,26 +114,30 @@ const submitForm = async () => {
       year: year.value,
       timestamp: new Date()
     })
-    
+
     const timeoutPromise = new Promise((_, reject) =>
       setTimeout(() => reject(new Error('Write operation timed out after 10 seconds. Check Firestore permissions.')), 10000)
     )
-    
+
     const docRef = await Promise.race([addDocPromise, timeoutPromise])
 
-    console.log('6. Document added successfully:', docRef.id)
-    success.value = 'Registration successful!'
+    success.value = 'Registration successful! Redirecting...'
+
+    // Reset form
     name.value = ''
     email.value = ''
     department.value = ''
     year.value = ''
+
+    // Redirect to Google Form after a short delay (optional: 1-2 seconds for UX)
+    setTimeout(() => {
+      window.location.href = 'https://docs.google.com/forms/d/1qFt3EOEGwwsIDP8R5FIlrmPKCsV9p21p8-Csc2A_2zo/edit?usp=forms_home&ouid=102439292687435756167&ths=true'
+    }, 1000)
+
   } catch (err) {
     console.error('ERROR OCCURRED:', err)
-    console.error('Error message:', err.message)
-    console.error('Error code:', err.code)
     error.value = `Error submitting form: ${err.message}`
   } finally {
-    console.log('7. Finally block executing')
     loading.value = false
   }
 }
