@@ -16,95 +16,64 @@
       <!-- News Cards -->
       <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
 
-        <!-- Card 1 -->
-        <div
-          class="group rounded-2xl overflow-hidden border border-gray-200
-                 hover:shadow-xl transition duration-300"
-        >
-          <!-- Image -->
-          <div class="relative h-52 overflow-hidden">
-            <!-- <img
-              src="/assets/news1.jpg"
-              alt="Workshop"
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            /> -->
-            <div class="absolute inset-0 bg-[#145DA0]/20"></div>
-          </div>
+  <!-- Card 1 -->
+  <div class="group rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 bg-white">
+    <!-- Decorative Gradient -->
+    <div class="relative h-52 flex items-center justify-center">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#145DA0] to-[#47B5FF] opacity-20 rounded-t-2xl"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-[#145DA0]/50 z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c.888-2 4-2 4-2s-3.111 0-4 2zm0 0c-.888-2-4-2-4-2s3.111 0 4 2zm0 0v12"/>
+      </svg>
+    </div>
+    <!-- Content -->
+    <div class="p-6">
+      <span class="text-sm font-semibold text-[#145DA0]">January 2025</span>
+      <h3 class="mt-2 text-xl font-semibold text-gray-900">
+        Technical Training Workshop
+      </h3>
+      <p class="mt-3 text-gray-600 leading-relaxed">
+        SPE DSEAT hosted a hands-on technical workshop focused on petroleum engineering fundamentals and industry practices.
+      </p>
+    </div>
+  </div>
 
-          <!-- Content -->
-          <div class="p-6">
-            <span class="text-sm font-semibold text-[#145DA0]">
-              January 2025
-            </span>
-            <h3 class="mt-2 text-xl font-semibold text-gray-900">
-              Technical Training Workshop
-            </h3>
-            <p class="mt-3 text-gray-600 leading-relaxed">
-              SPE DSEAT hosted a hands-on technical workshop focused on
-              petroleum engineering fundamentals and industry practices.
-            </p>
-          </div>
-        </div>
+  <!-- Card 2 -->
+  <div class="group rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 bg-white">
+    <div class="relative h-52 flex items-center justify-center">
+      <div class="absolute inset-0 bg-gradient-to-tr from-[#145DA0] to-[#0BC5EA] opacity-20 rounded-t-2xl"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-[#145DA0]/50 z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20v-8m0 0l-3 3m3-3l3 3M4 12h16"/>
+      </svg>
+    </div>
+    <div class="p-6">
+      <span class="text-sm font-semibold text-[#145DA0]">March 2025</span>
+      <h3 class="mt-2 text-xl font-semibold text-gray-900">
+        Industry Seminar Series
+      </h3>
+      <p class="mt-3 text-gray-600 leading-relaxed">
+        Professionals from the energy sector shared insights on innovation, sustainability, and career development.
+      </p>
+    </div>
+  </div>
 
-        <!-- Card 2 -->
-        <div
-          class="group rounded-2xl overflow-hidden border border-gray-200
-                 hover:shadow-xl transition duration-300"
-        >
-          <!-- Image -->
-          <div class="relative h-52 overflow-hidden">
-            <!-- <img
-              src="/assets/news2.jpg"
-              alt="Seminar"
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            /> -->
-            <div class="absolute inset-0 bg-[#145DA0]/20"></div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-6">
-            <span class="text-sm font-semibold text-[#145DA0]">
-              March 2025
-            </span>
-            <h3 class="mt-2 text-xl font-semibold text-gray-900">
-              Industry Seminar Series
-            </h3>
-            <p class="mt-3 text-gray-600 leading-relaxed">
-              Professionals from the energy sector shared insights on
-              innovation, sustainability, and career development.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div
-          class="group rounded-2xl overflow-hidden border border-gray-200
-                 hover:shadow-xl transition duration-300"
-        >
-          <!-- Image -->
-          <div class="relative h-52 overflow-hidden">
-            <!-- <img
-              src="/assets/news3.jpg"
-              alt="Conference"
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            /> -->
-            <div class="absolute inset-0 bg-[#145DA0]/20"></div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-6">
-            <span class="text-sm font-semibold text-[#145DA0]">
-              June 2025
-            </span>
-            <h3 class="mt-2 text-xl font-semibold text-gray-900">
-              Student Conference Participation
-            </h3>
-            <p class="mt-3 text-gray-600 leading-relaxed">
-              Members represented SPE DSEAT at national and international
-              conferences, strengthening global connections.
-            </p>
-          </div>
-        </div>
+  <!-- Card 3 -->
+  <div class="group rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 bg-white">
+    <div class="relative h-52 flex items-center justify-center">
+      <div class="absolute inset-0 bg-gradient-to-l from-[#145DA0] to-[#47B5FF] opacity-20 rounded-t-2xl"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-[#145DA0]/50 z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <div class="p-6">
+      <span class="text-sm font-semibold text-[#145DA0]">June 2025</span>
+      <h3 class="mt-2 text-xl font-semibold text-gray-900">
+        Student Conference Participation
+      </h3>
+      <p class="mt-3 text-gray-600 leading-relaxed">
+        Members represented SPE DSEAT at national and international conferences, strengthening global connections.
+      </p>
+    </div>
+  </div>
 
       </div>
     </div>
