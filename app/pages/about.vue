@@ -88,9 +88,9 @@
       <p class="mb-4 text-gray-100">
         Be part of our growing community and advance your engineering skills and professional network.
       </p>
-      <button class="bg-white text-blue-900 font-bold px-6 py-2 rounded hover:bg-gray-100 transition">
+      <NuxtLink to="/register" class="bg-white text-blue-900 font-bold px-6 py-2 rounded hover:bg-gray-100 transition">
         Get Involved
-      </button>
+      </NuxtLink>
     </section>
 
   </div>
