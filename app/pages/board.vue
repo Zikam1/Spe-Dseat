@@ -67,7 +67,7 @@
 
 <script setup>
 const members = [
-  { name: "Elias Arochukwu", role: "Chairman", image: "/assets/Elias.png", bio: "Geoscience Discipline Manager, Shell Petroleum Development" },
+  { name: "Elias Arochukwu", role: "Chairman", image: "/assets/Elias.png", bio: "Geoscience Discipline Manager, Shell Petroleum Development Company" },
   { name: "Chijoke Ibeh", role: "Co-Chairman", image: "/assets/Chijioke.png", bio: "Technical Mentor, Chevron" },
   { name: "Stella Egwim-Ogbodu", role: "Board Member", image: "/assets/Stella.png", bio: "Senior Petrophysicist, Shell Petroleum Development Company" },
   { name: "Joy Ugoyah", role: "Board Member", image: "/assets/Joy.png", bio: "Project Development, Total Energies (Deep Offshore)" },
