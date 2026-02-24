@@ -33,6 +33,11 @@
             Contact
           </NuxtLink>
         </li>
+       <li>
+          <NuxtLink to="/board" class="hover:text-[#145DA0] transition">
+            Board Members
+          </NuxtLink>
+        </li>
       </ul>
 
       <!-- CTA -->
@@ -65,6 +70,7 @@
         <li><NuxtLink to="/about" @click="close">About</NuxtLink></li>
         <li><NuxtLink to="/membership" @click="close">Membership</NuxtLink></li>
         <li><NuxtLink to="/contact" @click="close">Contact</NuxtLink></li>
+        <li><NuxtLink to="/board" @click="close">Board Members</NuxtLink></li>
 
         <li class="pt-2">
           <NuxtLink
