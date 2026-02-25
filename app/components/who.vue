@@ -1,10 +1,10 @@
 <template>
-  <section class="py-24 bg-gray-50 text-gray-900">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
+  <!-- <section class="py-24 bg-gray-50 text-gray-900"> -->
+    <!-- <div class="max-w-7xl mx-auto px-6 lg:px-8"> -->
+      <!-- <div class="grid lg:grid-cols-2 gap-16 items-center"> -->
 
         <!-- Left: Text Content -->
-        <div>
+        <!-- <div>
           <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
             Who We Are
           </h2>
@@ -20,31 +20,31 @@
             between academia and industry while promoting sustainability and
             ethical leadership in the energy sector.
           </p>
-        </div>
+        </div> -->
 
         <!-- Right: Map Image with Floating Markers -->
-        <div class="flex justify-center">
-          <div class="relative max-w-sm w-full rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+        <!-- <div class="flex justify-center"> -->
+          <!-- <div class="relative max-w-sm w-full rounded-3xl overflow-hidden shadow-2xl border border-gray-200"> -->
             <!-- Map Image -->
-            <img
+            <!-- <img
               src="/assets/map1.png"
               alt="World Map"
               class="w-full h-auto object-cover"
-            />
+            /> -->
             
             <!-- Gradient overlay for depth -->
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 pointer-events-none rounded-3xl"></div>
+            <!-- <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 pointer-events-none rounded-3xl"></div> -->
 
             <!-- Floating markers -->
-            <div class="absolute top-12 left-1/4 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce"></div>
+            <!-- <div class="absolute top-12 left-1/4 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce"></div>
             <div class="absolute top-28 right-1/3 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce delay-150"></div>
-            <div class="absolute bottom-12 left-1/2 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce delay-300"></div>
-          </div>
-        </div>
+            <div class="absolute bottom-12 left-1/2 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce delay-300"></div> -->
+          <!-- </div> -->
+        <!-- </div> -->
 
-      </div>
-    </div>
-  </section>
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </section> -->
 
 
    <section class="bg-white p-6 md:p-12 rounded-2xl shadow-lg max-w-7xl mx-auto my-12">
@@ -236,12 +236,12 @@
           </p>
 
           <NuxtLink
-            to="/join"
+            to="/register"
             class="inline-block mt-4 px-6 py-3 rounded-xl
                    bg-[#145DA0] text-white font-semibold
                    hover:bg-[#0B3C5D] transition shadow-lg"
           >
-            Join SPE DSEAT
+            Join DSEATs Africa
           </NuxtLink>
         </div>
 
