@@ -111,7 +111,7 @@
             <h4 class="text-lg font-semibold mb-6">Contact</h4>
             <ul class="space-y-4 text-white/80">
               <li><span class="font-medium">Email:</span> info@spedseat.org</li>
-              <li><span class="font-medium">Phone:</span> +234 XXX XXX XXXX</li>
+              
               
             </ul>
           </div>

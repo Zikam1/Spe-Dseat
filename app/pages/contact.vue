@@ -45,11 +45,6 @@
           </div>
 
           <div>
-            <h3 class="font-semibold mb-2">Telephone</h3>
-            <p>+234 800 000 0000</p>
-          </div>
-
-          <div>
             <h3 class="font-semibold mb-2">Office Hours</h3>
             <p>
               Monday – Friday<br />
