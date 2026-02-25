@@ -1,14 +1,15 @@
 <template>
   <section class="bg-white text-gray-900">
+
     <!-- Header -->
     <header class="bg-[#145DA0] py-20 px-6">
       <div class="max-w-6xl mx-auto text-white">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          Contact & Participation
+          Contact & Engagement
         </h1>
         <p class="max-w-3xl text-lg text-blue-100">
           Society of Petroleum Engineers – Department of Systems Engineering
-          and Applied Technology (SPE DSEAT)
+          and Applied Technology (SPE DSEAT Africa)
         </p>
       </div>
     </header>
@@ -23,24 +24,24 @@
         </h2>
 
         <p class="text-gray-800 leading-relaxed max-w-4xl mb-10">
-          SPE DSEAT coordinates academic programmes, technical competitions,
-          conferences, and professional development initiatives. Students,
-          industry professionals, and partner organisations are encouraged
-          to engage through the official channels listed below.
+          SPE DSEAT Africa coordinates professional programs, technical initiatives,
+          industry forums, conferences, and leadership development activities.
+          Industry professionals, corporate partners, and organizations are
+          encouraged to engage through the official communication channels below.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
           <div>
             <h3 class="font-semibold mb-2">Office Address</h3>
             <p>
-              Department of Systems Engineering and Applied Technology<br />
-              University Campus, Nigeria
+              Department of Systems Engineering and Applied Technology
             </p>
           </div>
 
           <div>
             <h3 class="font-semibold mb-2">Email</h3>
-            <p>info@spedseat.org</p>
+            <p>info@spedseatafrica.org</p>
           </div>
 
           <div>
@@ -55,47 +56,54 @@
               9:00 AM – 4:00 PM
             </p>
           </div>
+
         </div>
       </section>
 
-      <!-- Participation & Registration -->
+      <!-- Programs & Registration -->
       <section>
         <h2 class="text-2xl font-semibold text-[#145DA0] mb-6">
-          Programmes & Registration
+          Programs & Registration
         </h2>
 
         <p class="text-gray-800 leading-relaxed max-w-4xl mb-12">
-          Interested participants may register for SPE DSEAT competitions,
-          conferences, seminars, and professional training programmes
-          through the official registration pages below.
+          Interested professionals and organizations may register for SPE DSEAT Africa
+          industry programs, conferences, seminars, and technical training
+          initiatives through the official registration channels.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Competitions -->
+
+          <!-- Industry Programs -->
           <div class="border border-gray-200 p-6">
-            <h3 class="font-semibold mb-3">Student Competitions</h3>
+            <h3 class="font-semibold mb-3">Industry Programs</h3>
             <p class="text-sm text-gray-700 mb-4">
-              Technical and innovation-based competitions organised by SPE DSEAT.
+              Technical initiatives and innovation-driven programs designed to
+              support industry advancement and professional excellence.
             </p>
           </div>
 
-          <!-- Events -->
+          <!-- Conferences -->
           <div class="border border-gray-200 p-6">
-            <h3 class="font-semibold mb-3">Conferences & Seminars</h3>
+            <h3 class="font-semibold mb-3">Conferences & Forums</h3>
             <p class="text-sm text-gray-700 mb-4">
-              Academic conferences, guest lectures, and professional seminars.
+              Professional conferences, executive forums, and expert-led sessions
+              focused on industry trends, technology, and leadership.
             </p>
           </div>
 
-          <!-- Workshops -->
+          <!-- Training -->
           <div class="border border-gray-200 p-6">
-            <h3 class="font-semibold mb-3">Workshops & Training</h3>
+            <h3 class="font-semibold mb-3">Training & Development</h3>
             <p class="text-sm text-gray-700 mb-4">
-              Skills development and technical training programmes.
+              Specialized training programs and capacity development initiatives
+              aimed at enhancing technical and professional competencies.
             </p>
           </div>
+
         </div>
       </section>
+
     </main>
   </section>
 </template>

@@ -1,52 +1,4 @@
 <template>
-  <!-- <section class="py-24 bg-gray-50 text-gray-900"> -->
-    <!-- <div class="max-w-7xl mx-auto px-6 lg:px-8"> -->
-      <!-- <div class="grid lg:grid-cols-2 gap-16 items-center"> -->
-
-        <!-- Left: Text Content -->
-        <!-- <div>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-            Who We Are
-          </h2>
-          <p class="text-gray-700 mb-4 leading-relaxed">
-            SPE DSEAT is the Society of Petroleum Engineers’ student chapter
-            committed to developing future leaders in energy. We provide
-            students and professionals with technical knowledge, mentorship,
-            and opportunities to connect with the global energy industry.
-          </p>
-          <p class="text-gray-600 leading-relaxed">
-            Our activities include workshops, research collaborations, technical
-            training, and community engagement programs. We bridge the gap
-            between academia and industry while promoting sustainability and
-            ethical leadership in the energy sector.
-          </p>
-        </div> -->
-
-        <!-- Right: Map Image with Floating Markers -->
-        <!-- <div class="flex justify-center"> -->
-          <!-- <div class="relative max-w-sm w-full rounded-3xl overflow-hidden shadow-2xl border border-gray-200"> -->
-            <!-- Map Image -->
-            <!-- <img
-              src="/assets/map1.png"
-              alt="World Map"
-              class="w-full h-auto object-cover"
-            /> -->
-            
-            <!-- Gradient overlay for depth -->
-            <!-- <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 pointer-events-none rounded-3xl"></div> -->
-
-            <!-- Floating markers -->
-            <!-- <div class="absolute top-12 left-1/4 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce"></div>
-            <div class="absolute top-28 right-1/3 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce delay-150"></div>
-            <div class="absolute bottom-12 left-1/2 w-4 h-4 bg-[#1E7ACB] rounded-full shadow-lg animate-bounce delay-300"></div> -->
-          <!-- </div> -->
-        <!-- </div> -->
-
-      <!-- </div> -->
-    <!-- </div> -->
-  <!-- </section> -->
-
-
    <section class="bg-white p-6 md:p-12 rounded-2xl shadow-lg max-w-7xl mx-auto my-12">
     <!-- Title -->
     <h2 class="text-2xl md:text-3xl font-bold text-[#0B3C8A] mb-4">
@@ -106,7 +58,7 @@
     <div class="grid gap-6 md:grid-cols-2">
       <!-- Africa Workshop -->
       <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
-        <h3 class="font-semibold text-blue-700 mb-2">AI4Energy Africa Workshop</h3>
+        <h3 class="font-semibold text-[#0B3C8A] mb-2">AI4Energy Africa Workshop</h3>
         <p class="text-gray-600 text-sm mb-2">
           <strong>Theme:</strong> Harnessing AI for Sustainable Energy Solutions in Africa—Opportunities, Challenges, and Regional Impact
         </p>
@@ -120,12 +72,12 @@
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Sustainability</span>
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Responsible AI</span>
         </div>
-        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Registration & Details</button>
+        <NuxtLink to="/register" class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Registration & Details</NuxtLink>
       </div>
 
       <!-- Africa Leadership -->
       <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
-        <h3 class="font-semibold text-blue-700 mb-2">AI4Energy Africa Leadership</h3>
+        <h3 class="font-semibold text-[#0B3C8A] mb-2">AI4Energy Africa Leadership</h3>
         <p class="text-gray-600 text-sm mb-2">
           <strong>2026 (in development):</strong> Build regional energy leadership by catalyzing AI4Energy efforts and Technical Section growth across Africa.
         </p>
@@ -139,12 +91,12 @@
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Academia/Industry</span>
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Capacity Building</span>
         </div>
-        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Help Shape Africa Program</button>
+        
       </div>
 
       <!-- Africa Collaboration -->
       <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
-        <h3 class="font-semibold text-blue-700 mb-2">Africa Regional Collaboration</h3>
+        <h3 class="font-semibold text-[#0B3C8A] mb-2">Africa Regional Collaboration</h3>
         <p class="text-gray-600 text-sm mb-2">
           Collaborating with local partners and SPE sections to focus on practical AI applications and knowledge exchange across the continent.
         </p>
@@ -158,12 +110,12 @@
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Community Exchange</span>
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Regional Partners</span>
         </div>
-        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Event Page</button>
+
       </div>
 
       <!-- Next Regions -->
       <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
-        <h3 class="font-semibold text-blue-700 mb-2">Next Regions</h3>
+        <h3 class="font-semibold text-[#0B3C8A] mb-2">Next Regions</h3>
         <p class="text-gray-600 text-sm mb-2">
           The AI4Energy Africa series will continue expanding across other African regions as local teams form. If you’d like to lead a regional edition, reach out.
         </p>
@@ -176,7 +128,7 @@
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Playbook</span>
           <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Scale</span>
         </div>
-        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Contact DSEATS</button>
+        
       </div>
     </div>
 </section>

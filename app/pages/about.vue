@@ -3,29 +3,32 @@
 
     <!-- Hero Section -->
     <section class="bg-[#145DA0] text-white py-16 px-6 md:px-20 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">About SPE DSEAT</h1>
-      <p class="text-lg md:text-xl max-w-2xl mx-auto">
-        SPE DSEAT is committed to empowering students in engineering and technology with the skills, knowledge, and opportunities they need to succeed professionally.
-      </p>
-    </section>
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">About SPE DSEAT</h1>
+  <p class="text-lg md:text-xl max-w-2xl mx-auto">
+    SPE DSEAT is committed to empowering industry professionals across engineering, energy, and technology sectors with advanced knowledge, collaborative opportunities, and leadership development to drive innovation and operational excellence.
+  </p>
+</section>
 
-    <!-- Mission & Vision -->
-    <section class="py-16 px-6 md:px-20">
-      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 class="text-2xl font-bold mb-2 text-blue-900">Our Mission</h2>
-          <p class="text-gray-700">
-            To provide students with practical knowledge, hands-on experience, and mentorship to excel in engineering and technology.
-          </p>
-        </div>
-        <div>
-          <h2 class="text-2xl font-bold mb-2 text-blue-900">Our Vision</h2>
-          <p class="text-gray-700">
-            To create a community of skilled and confident engineers who contribute to technological innovation and societal progress.
-          </p>
-        </div>
-      </div>
-    </section>
+<!-- Mission & Vision -->
+<section class="py-16 px-6 md:px-20">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+
+    <div>
+      <h2 class="text-2xl font-bold mb-2 text-blue-900">Our Mission</h2>
+      <p class="text-gray-700">
+        To equip professionals with cutting-edge insights, practical expertise, and strategic networks that enhance career growth, technical excellence, and industry impact.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-2 text-blue-900">Our Vision</h2>
+      <p class="text-gray-700">
+        To build a global community of forward-thinking professionals leading digital transformation, innovation, and sustainable advancement within the energy and technology industries.
+      </p>
+    </div>
+
+  </div>
+</section>
 
     <!-- Core Values -->
     <section class="py-16 px-6 md:px-20 bg-gray-100">
