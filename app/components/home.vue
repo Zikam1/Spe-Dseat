@@ -1,61 +1,79 @@
 <template>
-  <div class="bg-slate-950 text-slate-100 font-sans">
-    <!-- HERO SECTION -->
+  <div class="bg-slate-100 p-4">
     <section
-      class="relative h-[85vh] flex items-center justify-center
-             bg-[url('/assets/ref.jpg')] bg-cover bg-center"
+      class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#0B3C8A] via-[#0A3A7A] to-[#072A5E] text-white"
     >
-      <!-- Tory Blue Overlay -->
+      <!-- Background image -->
       <div
-        class="absolute inset-0
-               bg-gradient-to-br from-[#072A3D]/90 via-[#0B3C5D]/70 to-[#145DA0]/50"
+        class="absolute inset-0 bg-[url('/assets/ref.jpg')] bg-cover bg-center opacity-20"
       ></div>
 
-      <!-- Curved Bottom Separator -->
-      <div class="absolute bottom-0 w-full overflow-hidden leading-[0] rotate-180">
-        <svg
-          class="relative block w-full h-20 md:h-28"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          viewBox="0 0 1200 120"
-        >
-          <path
-            d="M321.39,56.9C161.16,77,0,119.5,0,119.5V0H1200V119.5s-161.16-42.5-321.39-62.6C720.92,36.4,600,67.2,479.08,67.2,358.16,67.2,321.39,56.9,321.39,56.9Z"
-            fill="#020617"
-          />
-        </svg>
-      </div>
+      <!-- Glow effect -->
+      <div class="absolute -top-20 -right-20 w-72 h-72 bg-blue-400/20 blur-3xl rounded-full"></div>
 
-      <!-- Content Card -->
-      <div
-        class="relative z-10 max-w-3xl text-center px-6 sm:px-12 py-10 rounded-3xl
-               backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl"
-      >
-        <!-- Badge -->
-        <span
-          class="inline-block mb-4 px-4 py-1.5 rounded-full text-sm font-medium"
-          style="
-            color:#FFFFFF;
-            background:rgba(30,122,203,0.1);
-            border:1px solid rgba(30,122,203,0.35);
-          "
-        >
-          Society of Petroleum Engineers
-        </span>
+      <div class="relative z-10 grid lg:grid-cols-2 gap-6 items-center px-6 py-8 md:px-10 md:py-10">
+        <!-- LEFT CONTENT -->
+        <div>
+          <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            SPE Data Science & Engineering Analytics Africa
+            <span class="text-blue-300">(DSEATS Africa)</span>
+          </h1>
 
-        <!-- Heading -->
-        <h1
-          class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight"
-        >
-          SPE <span style="color:#1E7ACB">DSEAT</span>
-        </h1>
+          <p class="mt-3 text-blue-100 max-w-xl text-sm md:text-base">
+            DSEATS Africa is a professional community empowering engineers, data scientists, and analytics professionals across Africa’s energy sector. We connect advanced analytics, AI/ML, automation, and engineering expertise to optimize performance, enhance reliability, and drive sustainable outcomes.
+          </p>
 
-        <!-- Subtitle -->
-        <p class="mt-5 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
-          Advancing petroleum engineering knowledge, innovation, leadership,
-          and sustainable energy solutions through research, training, and
-          industry collaboration.
-        </p>
+          <!-- Pill Areas of Focus -->
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-white/10 border border-white/30 backdrop-blur hover:bg-white/20 transition">
+              AI & Machine Learning
+            </span>
+            <span class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-white/10 border border-white/30 backdrop-blur hover:bg-white/20 transition">
+              Generative AI
+            </span>
+            <span class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-white/10 border border-white/30 backdrop-blur hover:bg-white/20 transition">
+              Data Governance
+            </span>
+            <span class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-white/10 border border-white/30 backdrop-blur hover:bg-white/20 transition">
+              Responsible AI
+            </span>
+            <span class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-white/10 border border-white/30 backdrop-blur hover:bg-white/20 transition">
+              Decision Intelligence
+            </span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="mt-6 flex flex-wrap gap-3">
+            <NuxtLink
+              to="/register"
+              class="px-5 py-2.5 rounded-lg bg-white text-[#0B3C8A] font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition duration-300"
+            >
+              Join DSEATS Africa
+            </NuxtLink>
+
+            <NuxtLink
+              to="/board"
+              class="px-5 py-2.5 rounded-lg bg-white/10 border border-white/30 backdrop-blur font-semibold hover:bg-white/20 transition duration-300"
+            >
+              Meet the Leadership
+            </NuxtLink>
+          </div>
+        </div>
+
+        <!-- RIGHT LOGO -->
+        <div class="flex justify-end mt-6 lg:mt-0">
+          <div
+            class="relative w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 lg:w-72 lg:h-72 rounded-full flex items-center justify-center"
+          >
+            <!-- Gradient border (scales with container) -->
+            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-400 to-cyan-300 blur-md opacity-40"></div>
+
+            <!-- Image -->
+            <div class="relative w-full h-full rounded-full overflow-hidden bg-white shadow-2xl">
+              <img src="/assets/ref.jpg" alt="SPE DSEATS Africa Logo" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>

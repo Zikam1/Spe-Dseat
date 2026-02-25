@@ -1,5 +1,5 @@
 <template>
-  <section class="py-24 bg-white text-gray-900">
+  <section class="py-24 bg-gray-50 text-gray-900">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -45,6 +45,141 @@
       </div>
     </div>
   </section>
+
+
+   <section class="bg-white p-6 md:p-12 rounded-2xl shadow-lg max-w-7xl mx-auto my-12">
+    <!-- Title -->
+    <h2 class="text-2xl md:text-3xl font-bold text-[#0B3C8A] mb-4">
+      What DSEATS Delivers
+    </h2>
+
+    <!-- Description -->
+    <p class="text-gray-700 mb-8 text-sm md:text-base">
+      DSEATS is a knowledge-sharing and learning forum that bridges analytics with engineering execution—supporting SPE disciplines with practical, scalable approaches to data, models, and digital transformation.
+    </p>
+
+    <!-- Cards -->
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Knowledge Exchange -->
+      <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
+        <h3 class="font-semibold text-[#0B3C8A] mb-2">Knowledge Exchange</h3>
+        <p class="text-gray-600 text-sm">
+          Workshops, webinars, and community discussions that connect practitioners across domains.
+        </p>
+      </div>
+
+      <!-- Best Practices -->
+      <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
+        <h3 class="font-semibold text-[#0B3C8A] mb-2">Best Practices</h3>
+        <p class="text-gray-600 text-sm">
+          Patterns for data readiness, governance, and robust model deployment in operational environments.
+        </p>
+      </div>
+
+      <!-- Collaboration -->
+      <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
+        <h3 class="font-semibold text-[#0B3C8A] mb-2">Collaboration</h3>
+        <p class="text-gray-600 text-sm">
+          Hub-and-spoke collaboration with SPE sections, universities, and industry partners globally.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="bg-white p-6 md:p-12 rounded-2xl shadow-lg max-w-7xl mx-auto my-12">
+    <!-- Title -->
+    <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center mb-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#0B3C8A]">
+        AI4Energy Series
+      </h2>
+      <!-- Optional Logo on the right -->
+      <!-- <img src="/assets/ai4energy-logo.png" alt="AI4Energy Logo" class="w-32 mt-4 md:mt-0" /> -->
+    </div>
+
+    <!-- Description -->
+    <p class="text-gray-700 mb-8 text-sm md:text-base">
+      A regional workshop series convening executives, AI leaders, domain experts, and students to share practical applications, identify barriers, and accelerate responsible adoption of AI across energy.
+    </p>
+
+    <!-- Cards Grid -->
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- Africa Workshop -->
+      <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
+        <h3 class="font-semibold text-blue-700 mb-2">AI4Energy Africa Workshop</h3>
+        <p class="text-gray-600 text-sm mb-2">
+          <strong>Theme:</strong> Harnessing AI for Sustainable Energy Solutions in Africa—Opportunities, Challenges, and Regional Impact
+        </p>
+        <ul class="text-gray-600 text-sm mb-2 list-disc list-inside">
+          <li><strong>Date:</strong> April 15, 2026</li>
+          <li><strong>Location:</strong> Nairobi Innovation Hub, Nairobi, Kenya</li>
+          <li><strong>Format:</strong> One-day workshop (keynote + themed talks + panel + breakouts)</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">AI for Energy</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Sustainability</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Responsible AI</span>
+        </div>
+        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Registration & Details</button>
+      </div>
+
+      <!-- Africa Leadership -->
+      <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
+        <h3 class="font-semibold text-blue-700 mb-2">AI4Energy Africa Leadership</h3>
+        <p class="text-gray-600 text-sm mb-2">
+          <strong>2026 (in development):</strong> Build regional energy leadership by catalyzing AI4Energy efforts and Technical Section growth across Africa.
+        </p>
+        <ul class="text-gray-600 text-sm mb-2 list-disc list-inside">
+          <li><strong>Focus:</strong> Regional leadership, talent pipeline, and cross-sector collaboration</li>
+          <li><strong>Status:</strong> Program concept development (details to be announced)</li>
+          <li><strong>Planned:</strong> 2026</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Regional Growth</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Academia/Industry</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Capacity Building</span>
+        </div>
+        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Help Shape Africa Program</button>
+      </div>
+
+      <!-- Africa Collaboration -->
+      <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
+        <h3 class="font-semibold text-blue-700 mb-2">Africa Regional Collaboration</h3>
+        <p class="text-gray-600 text-sm mb-2">
+          Collaborating with local partners and SPE sections to focus on practical AI applications and knowledge exchange across the continent.
+        </p>
+        <ul class="text-gray-600 text-sm mb-2 list-disc list-inside">
+          <li><strong>Region:</strong> Africa (multi-country collaboration)</li>
+          <li><strong>Format:</strong> One-day workshops and networking sessions</li>
+          <li><strong>Partners:</strong> Local SPE sections and energy organizations</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Practical AI</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Community Exchange</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Regional Partners</span>
+        </div>
+        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Event Page</button>
+      </div>
+
+      <!-- Next Regions -->
+      <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 hover:shadow-lg transition duration-300">
+        <h3 class="font-semibold text-blue-700 mb-2">Next Regions</h3>
+        <p class="text-gray-600 text-sm mb-2">
+          The AI4Energy Africa series will continue expanding across other African regions as local teams form. If you’d like to lead a regional edition, reach out.
+        </p>
+        <ul class="text-gray-600 text-sm mb-2 list-disc list-inside">
+          <li><strong>Looking for:</strong> Organizers, speakers, sponsors, and academic partners</li>
+          <li><strong>Goal:</strong> Repeatable workshop playbook with regional customization</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Volunteer Leadership</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Playbook</span>
+          <span class="px-3 py-1.5 text-xs rounded-full bg-blue-100 text-blue-800">Scale</span>
+        </div>
+        <button class="mt-3 px-4 py-1.5 rounded bg-blue-50 text-blue-700 text-xs hover:bg-blue-100 transition">Contact DSEATS</button>
+      </div>
+    </div>
+</section>
 
 
   <section class="relative py-20 bg-[#050a1e] overflow-hidden">
